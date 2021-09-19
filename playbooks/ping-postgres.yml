@@ -1,0 +1,17 @@
+---
+  - hosts: node
+    become: true
+    become_method: su
+    become_user: root
+    vars_files:
+      - /etc/ansible/playbooks/vars/aerbuntu-pass.yml
+      - /etc/ansible/playbooks/vars/env_vars.yml
+    vars:
+      ansible_become_pass: '{{password}}'
+    tasks:
+      - name: Ping the PostgreSQL to test connectivity
+        postgresql_ping:
+          db: '{{postgres_db}}'
+          login_host: '{{remote_user}}'
+          login_user: '{{postgres_user}}'
+          login_password: '{{postgres_pass}}'

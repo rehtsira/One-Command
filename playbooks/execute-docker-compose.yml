@@ -1,0 +1,16 @@
+---
+  - hosts: node
+    name: Setup NGINX and PostgreSQL container 
+    become: yes
+    become_user: root
+    become_method: su
+    vars_files:
+      - /etc/ansible/playbooks/vars/aerbuntu-pass.yml
+      - /etc/ansible/playbooks/vars/env_vars.yml
+    vars:
+      ansible_become_pass: '{{password}}'
+    tasks:
+      - name: Execute Docker Compose
+        docker_compose:
+          project_src: '{{cfg_remote_dir}}'
+          files: docker-compose.yml

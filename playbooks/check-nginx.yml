@@ -1,0 +1,19 @@
+---
+ - hosts: node
+   become: true
+   become_method: su
+   become_user: root
+   vars_files:
+     - /etc/ansible/playbooks/vars/aerbuntu-pass.yml
+   vars:
+     ansible_become_pass: '{{password}}'
+   tasks:
+    - name: Verify that NGINX is returning a status
+      uri:
+        url: "http://localhost:8000"
+        method: GET
+        return_content: yes
+        status_code: 200
+        body_format: json
+      register: nginx_output
+    - debug: msg={{nginx_output}}

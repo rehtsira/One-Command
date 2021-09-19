@@ -1,0 +1,14 @@
+---
+ - hosts: node
+   become_method: sudo
+   become: yes
+   become_user: root
+   tasks:
+    - name: Install NGINX on a docker container
+      docker_container:
+          name: nginx
+          image: nginx
+          detach: true
+          ports: 8000:80
+          expose: 8000
+          volumes: /home/aer/Downloads:/usr/share/nginx/html 

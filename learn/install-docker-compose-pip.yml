@@ -1,0 +1,11 @@
+---
+ - hosts: node
+   become: yes
+   become_method: su
+   become_user: root
+   name: Setting up Docker Compose
+   tasks:
+     - name: Install Docker Compose with pip
+       pip:
+         name: docker-compose
+         state: present

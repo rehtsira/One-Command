@@ -1,0 +1,8 @@
+---
+ - hosts: node
+   name: Importing a playbook
+   tasks:
+ - import_playbook: sudo-vault.yml
+ - import_playbook: variables.yml
+...
+

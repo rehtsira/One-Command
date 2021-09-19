@@ -1,0 +1,19 @@
+---
+  - hosts: node
+    become: true
+    become_user: root
+    become_method: su
+    vars_files:
+      - /etc/ansible/playbooks/vars/aerbuntu-pass.yml
+      - /etc/ansible/playbooks/vars/env_vars.yml
+    vars:
+      ansible_become_pass: '{{password}}'
+    tasks:
+      - name: Copy files to {{ cfg_remote_dir }}
+        copy:
+          src: '{{cfg_host_dir}}'
+          dest: '{{cfg_remote_dir}}'
+          owner: '{{copy_owner}}'
+          group: '{{copy_group}}'
+          mode: '{{copy_mode}}'
+

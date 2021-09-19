@@ -1,0 +1,6 @@
+---
+ - name: Using Variables to set Credentials
+   hosts: node
+   tasks:
+       - include_vars: creds.yml
+       - debug: msg="Your password is {{ ssh_pass }}"

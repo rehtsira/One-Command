@@ -1,0 +1,25 @@
+---
+ - hosts: node
+   become: true
+   become_method: su
+   become_user: root
+   tasks:
+     - name: Setup PostgreSQL docker container
+       docker_container:
+         name: aergreSQL
+         image: postgres
+         state: started
+         ports: 5432:5432
+         env:
+           POSTGRES_USER: "aerdb"
+           POSTGRES_PASSWORD: "aer"
+     - name: Install dependency
+       pip:
+         name: psycopg2-binary
+         state: present
+     - name: Ping the database for connectivity
+       postgresql_ping:
+         db: aerdb
+         login_host: aer-Ubuntu
+         login_user: aerdb
+         login_password: aer

@@ -1,0 +1,17 @@
+---
+  - hosts: node
+    become: true
+    become_method: su
+    become_user: root
+    vars_files: 
+     - /etc/ansible/playbooks/vars/aerbuntu-pass.yml
+    vars:
+      ansible_become_pass: '{{password}}'
+    tasks:
+  - import_playbook: create-directory.yml
+  - import_playbook: copy-files.yml
+  - import_playbook: setup-docker.yml
+  - import_playbook: install-docker-compose-pip.yml
+  - import_playbook: execute-docker-compose.yml
+  - import_playbook: check-nginx.yml
+  - import_playbook: ping-postgres.yml

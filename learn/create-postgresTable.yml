@@ -1,0 +1,18 @@
+---
+  - hosts: node
+    name: Create a table and insert values in posgres
+    become: true
+    become_method: su
+    become_user: root
+    tasks:
+      - name: Create table
+        postgresql_table:
+          db: aerdb
+          table: students
+          columns:
+            - id sid primary key
+            - firstname varchar(20)
+            - lastname varchar(20)
+          state: present
+
+

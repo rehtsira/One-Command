@@ -1,0 +1,6 @@
+---
+ - name: Testing out variables
+   hosts: node
+   tasks:
+       - include_vars: env.yml
+       - debug: msg="Hello, {{ echo }}"

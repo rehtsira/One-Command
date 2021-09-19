@@ -1,0 +1,16 @@
+---
+  - hosts: node
+    become: true
+    become_user: root
+    become_method: su
+    name: Verify that NGINX is returning a website
+    tasks:
+      - name: Check status code
+        uri:
+          url: "http://localhost:8000"
+          method: GET
+          return_content: yes
+          status_code: 200
+          body_format: json
+        register: data
+      - debug: msg={{data.content}}

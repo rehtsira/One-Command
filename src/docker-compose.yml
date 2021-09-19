@@ -1,0 +1,20 @@
+---
+version: "3.9"
+services:
+  web:
+    image: nginx
+    container_name: aer-nginx
+    volumes: ["/home/aer/cfg:/usr/share/nginx/html"]
+    ports: ["8000:80"]
+  database:
+    image: postgres
+    container_name: aer-postgres
+    ports: ["5432:5432"]
+    volumes: ["/home/aer/cfg:/docker-entrypoint-initdb.d"]
+    env_file:
+      - /home/aer/cfg/.env
+    environment:
+      POSTGRES_USER: "${postgres_user}"
+      POSTGRES_PASSWORD: "${postgres_pass}"
+      POSTGRES_DB: "${postgres_db}"
+...
