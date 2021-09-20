@@ -4,8 +4,9 @@
 
 
 <div align="center">
- <br>
+ 
  Execute `ansible-playbook -vv one.yml --ask-vault-pass`
+ 
 ![One](https://github.com/rehtsira/One-Command/blob/main/images/one.gif)
 
 ![Nginx-check](https://github.com/rehtsira/One-Command/blob/main/images/NGINX-check.png) 
