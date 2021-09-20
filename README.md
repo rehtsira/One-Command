@@ -4,7 +4,9 @@ Spins up NGINX and PostgreSQL containers with Ansible using one command.
 <div align="center">
  
 ![One](https://github.com/rehtsira/One-Command/blob/main/images/one.gif)
- Execute `ansible-playbook -vv one.yml --ask-vault-pass`
+
+ 
+Execute `ansible-playbook -vv one.yml --ask-vault-pass`
 
 ![Nginx-check](https://github.com/rehtsira/One-Command/blob/main/images/NGINX-check.png)
  
