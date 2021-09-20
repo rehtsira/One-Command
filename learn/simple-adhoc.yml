@@ -1,6 +1,0 @@
----
-- name: Reviewing Ansible Playbooks
-  hosts: node
-  tasks:
-      - name: I was here.
-        command: "touch /tmp/I_was_here"
