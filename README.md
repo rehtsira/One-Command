@@ -1,5 +1,5 @@
 # <div align="center">One-Command</div>
-Spins up NGINX and PostgreSQL containers with Ansible using one command.
+<div align="center">Spins up NGINX and PostgreSQL containers with Ansible using one command.</div>
 
 <div align="center">
  
