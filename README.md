@@ -9,7 +9,7 @@ Spins up NGINX and PostgreSQL containers with Ansible
  
  ![Nginx-check](https://github.com/rehtsira/One-Command/blob/main/images/NGINX-check.png)
  
- ![PostgreSQL-check](https://github.com/rehtsira/One-Command/blob/main/images/NGINX-check.png)
+ ![PostgreSQL-check](https://github.com/rehtsira/One-Command/blob/main/images/PostgreSQL%20ping.png)
  
  ![before-compose](https://github.com/rehtsira/One-Command/blob/main/images/before-compose.gif)
  
