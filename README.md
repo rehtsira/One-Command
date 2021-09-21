@@ -40,9 +40,11 @@ A table has already been created with a couple rows
  So, I utilized several Ansible modules such as:
  
 uri
-~Get HTML content from NGINX
+- Get HTML content from NGINX
+<br></br>
 copy
-~Copy files such as *create.sql*, *docker-compose.yml*, *index.html* to the remote server
+- Copy files such as *create.sql*, *docker-compose.yml*, *index.html* to the remote server
+<br></br>
 file
 ~Create a directory to store the files to be copied from /src
 docker_compose
