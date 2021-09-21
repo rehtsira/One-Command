@@ -31,7 +31,7 @@ After the NGINX container was brought up
 ![table-check](https://github.com/rehtsira/One-Command/blob/main/images/postgres-check.gif)
  
 A table has already been created with a couple rows
- 
+</div>
 ---
 
  <b> Overview </b>
