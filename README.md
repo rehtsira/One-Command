@@ -38,7 +38,7 @@ A table has already been created with a couple rows
  The goal of this project is to spin up NGINX and PostgreSQL containers using Ansible and Docker with one criteria: the deployment of it all should be executed as a single command. To make this possible, Ansible played a vital role. It contains numerous modules to execute what you want done. You could, theoretically, utilize the 'command' module to install packages, copy files, setup docker, and everything. However, you may have to worry about idempotency which is not the approach I wanted in this project. 
 </div>
 So, I utilized several Ansible modules such as:
- <br>
+
 uri
 - Get HTML content from NGINX
 
