@@ -39,9 +39,9 @@ A table has already been created with a couple rows
  
  So, I utilized several Ansible modules such as:
  
-uri
+<b>uri</b>
 * Get HTML content from NGINX
-copy
+ <b>copy</b>
 * Copy files such as *create.sql*, *docker-compose.yml*, *index.html* to the remote server
 file
 * Create a directory to store the files to be copied from /src
