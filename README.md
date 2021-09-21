@@ -49,7 +49,7 @@ file
 - Create a directory to store the files to be copied from /src
 
 docker_compose
- - Execute the docker-compose.yml file that spins up both NGINX and PostgreSQL. Instead of utilizing the docker module, I chose with docker_compose to spin up NGINX and PostgreSQL both in one go.
+ - Execute the docker-compose.yml file that spins up both NGINX and PostgreSQL. Instead of utilizing the docker module, I chose with docker_compose to spin up multiple containers in one go.
  
 pip
 - Install files using pip such as docker-compose, psycopg2-binary, docker-ce, docker
@@ -79,7 +79,7 @@ To add more functionality, *create.sql* was created which creates a schema, data
 
 ---
 <b> To get started: </b>
-Either execute *env_setup.sh* bash script execute permission to install QEMU/KVM for virtualization along with Ansible or use your own virtual machine manager (VMWare, Hyper-V, VirtualBox). Use an Ubuntu ISO and proceed with the installation process. Once that is complete, establish SSH between the host and remote server by creating an SSH key.
+Either execute *env_setup.sh* bash script with execute permission to install QEMU/KVM for virtualization along with Ansible or use your own virtual machine manager (VMWare, Hyper-V, VirtualBox). Use an Ubuntu ISO and proceed with the installation process. Once that is complete, establish SSH between the host and remote server by creating an SSH key.
 
 From the Ansible host:
 `ssh-keygen -t rsa` (Press enter twice)
