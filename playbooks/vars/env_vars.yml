@@ -1,0 +1,12 @@
+---
+remote_user: "aer-Ubuntu"
+cfg_remote_dir: "/home/aer/cfg"
+cfg_host_dir: "/etc/ansible/src/"
+copy_postgres_env_dir: "/etc/ansible/playbooks/vars/"
+copy_owner: "aer"
+copy_group: "aer"
+copy_mode: "0664"
+postgres_user: "aeruser"
+postgres_pass: "aer"
+postgres_db: "aerdb"
+
