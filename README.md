@@ -32,4 +32,8 @@ After the NGINX container was brought up
  
 A table has already been created with a couple rows
  
+---… | ***… | ___…
+ 
+ Folder structure
+ 
  
