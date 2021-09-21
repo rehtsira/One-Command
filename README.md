@@ -69,7 +69,7 @@ postgresql_ping
 import_playbook
  - The heart and soul of how this project was possible. This executes all of the different playbooks one by one in order from start to finish. 
 ---
-Much like how Ansible has numerous modules, I, too, wanted to modularized all of the tasks. Instead of trying to cram in all of the different Ansible modules into one playbook and running it, I separated each tasks into its own playbook. That way, if there was an issue with a task, I will just need to focus on that one playbook instead of having to re-run the entire automation just to see if it works. This makes it easier to modify the playbook if needed.
+Much like how Ansible has numerous modules, I, too, wanted to modularize all of the tasks. Instead of trying to cram in all of the different Ansible modules into one playbook and running it, I separated each tasks into its own playbook. That way, if there was an issue with a task, I will just need to focus on that one playbook instead of having to re-run the entire automation just to see if it works. This makes it easier to modify the playbook if needed.
 
 To add some security, I also utilized Ansible-Vault to store the SSH password of the remote server. Instead of having to type the password for the remote server (i.e. `ansible-playbook copy-files.yml -kK` which would prompt for the SSH password, `ansible-playbook copy-files.yml --ask-vault-pass` will take care of the rest. 
 
