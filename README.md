@@ -37,7 +37,7 @@ A table has already been created with a couple rows
  <b> Overview: </b>
  The goal of this project is to spin up NGINX and PostgreSQL containers using Ansible and Docker with one criteria: the deployment of it all should be executed as a single command. To make this possible, Ansible played a vital role. It contains numerous modules to execute what you want done. You could, theoretically, utilize the 'command' module to install packages, copy files, setup docker, and everything. However, you may have to worry about idempotency which is not the approach I wanted in this project. 
 </div>
- So, I utilized several Ansible modules such as:
+So, I utilized several Ansible modules such as:
  
 uri
 - Get HTML content from NGINX
@@ -68,6 +68,31 @@ postgresql_ping
  
 import_playbook
  - The heart and soul of how this project was possible. This executes all of the different playbooks one by one in order from start to finish. 
-  
+---
+Much like how Ansible has numerous modules, I, too, wanted to modularized all of the tasks. Instead of trying to cram in all of the different Ansible modules into one playbook and running it, I separated each tasks into its own playbook. That way, if there was an issue with a task, I will just need to focus on that one playbook instead of having to re-run the entire automation just to see if it works. This makes it easier to modify the playbook if needed.
+
+To add some security, I also utilized Ansible-Vault to store the SSH password of the remote server. Instead of having to type the password for the remote server (i.e. `ansible-playbook copy-files.yml -kK` which would prompt for the SSH password, `ansible-playbook copy-files.yml --ask-vault-pass` will take care of the rest. 
+
+There is also a file called *env_vars.yml* that stores the environment variables which can be modified in one place if required. If ever additional variables are needed, one can simply add a variable and store it in this file. 
+
+To add more functionality, *create.sql* was created which creates a schema, database, and values which are initially loaded into the PostgreSQL container at startup. If additional tables/records are needed, one can modify this file. 
+
+---
+<b> To get started: </b>
+Either execute *env_setup.sh* bash script execute permission to install QEMU/KVM for virtualization along with Ansible or use your own virtual machine manager (VMWare, Hyper-V, VirtualBox). Use an Ubuntu ISO and proceed with the installation process. Once that is complete, establish SSH between the host and remote server by creating an SSH key.
+
+From the Ansible host:
+`ssh-keygen -t rsa` (Press enter twice)
+`cd ~/.ssh`
+`cat id_rsa.pub >> authorized_keys`
+`scp authorized_keys 192.168.122.81:/home/aer/.ssh` (Change the IP address with the IP of your remote server. Also change the home directory of your user)
+
+On the remote server:
+`ssh-keygen -t rsa` (Press enter twice)
+
+With git installed, run the command below on */etc/ansible/* (once you have Ansible installed)
+`git clone https://github.com/rehtsira/One-Command.git`
+
+
  
  
