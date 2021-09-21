@@ -6,7 +6,7 @@
  
 ![One](https://github.com/rehtsira/One-Command/blob/main/images/one.gif)
  
- Execute `ansible-playbook -vv one.yml --ask-vault-pass`
+ The one command: `ansible-playbook -vv one.yml --ask-vault-pass`
 
 ![Nginx-check](https://github.com/rehtsira/One-Command/blob/main/images/NGINX-check.png) 
  
@@ -38,7 +38,7 @@ A table has already been created with a couple rows
  The goal of this project is to spin up NGINX and PostgreSQL containers using Ansible and Docker with one criteria: the deployment of it all should be executed as a single command. To make this possible, Ansible played a vital role. It contains numerous modules to execute what you want done. You could, theoretically, utilize the 'command' module to install packages, copy files, setup docker, and everything. However, you may have to worry about idempotency which is not the approach I wanted in this project. 
 </div>
 So, I utilized several Ansible modules such as:
- 
+ <br>
 uri
 - Get HTML content from NGINX
 
@@ -49,7 +49,7 @@ file
 - Create a directory to store the files to be copied from /src
 
 docker_compose
- - Execute the docker-compose.yml file that spins up both NGINX and PostgreSQL
+ - Execute the docker-compose.yml file that spins up both NGINX and PostgreSQL. Instead of utilizing the docker module, I chose with docker_compose to spin up NGINX and PostgreSQL both in one go.
  
 pip
 - Install files using pip such as docker-compose, psycopg2-binary, docker-ce, docker
@@ -83,8 +83,11 @@ Either execute *env_setup.sh* bash script execute permission to install QEMU/KVM
 
 From the Ansible host:
 `ssh-keygen -t rsa` (Press enter twice)
+<br>
 `cd ~/.ssh`
+<br>
 `cat id_rsa.pub >> authorized_keys`
+<br>
 `scp authorized_keys 192.168.122.81:/home/aer/.ssh` (Change the IP address with the IP of your remote server. Also change the home directory of your user)
 
 On the remote server:
@@ -93,6 +96,11 @@ On the remote server:
 With git installed, run the command below on */etc/ansible/* (once you have Ansible installed)
 `git clone https://github.com/rehtsira/One-Command.git`
 
+In */etc/ansible/playbooks/vars/* directory, create a file called *aerbuntu-pass.yml*. Inside that file, put inside `password: "your_password"` which is the password of your root user of the remote server. Execute the command below: <br>
+`ansible-vault encrypt aerbuntu-pass.yml` (type the password to open that file. This is also the password you will type for `--ask-vault-pass`)
 
+Once this is encrypted, you can go to the playbooks directory (*/etc/ansible/playbooks*) and simply execute `ansible-playbook -vv one.yml --ask-vault-pass`
+
+Watch as an NGINX and PostgreSQL docker containers are created on your remote server using Ansible and with merely one command.
  
  
