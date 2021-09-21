@@ -82,6 +82,7 @@ To add more functionality, *create.sql* was created which creates a schema, data
 Either execute *env_setup.sh* bash script with execute permission to install QEMU/KVM for virtualization along with Ansible or use your own virtual machine manager (VMWare, Hyper-V, VirtualBox). Use an Ubuntu ISO and proceed with the installation process. Once that is complete, establish SSH between the host and remote server by creating an SSH key.
 
 From the Ansible host:
+<br>
 `ssh-keygen -t rsa` (Press enter twice)
 <br>
 `cd ~/.ssh`
@@ -97,7 +98,7 @@ With git installed, run the command below on */etc/ansible/* (once you have Ansi
 `git clone https://github.com/rehtsira/One-Command.git`
 
 In */etc/ansible/playbooks/vars/* directory, create a file called *aerbuntu-pass.yml*. Inside that file, put inside `password: "your_password"` which is the password of your root user of the remote server. Execute the command below: <br>
-`ansible-vault encrypt aerbuntu-pass.yml` (type the password to open that file. This is also the password you will type for `--ask-vault-pass`)
+`ansible-vault encrypt aerbuntu-pass.yml` (It will prompt for a password. This is also the password you will type for `--ask-vault-pass`)
 
 Once this is encrypted, you can go to the playbooks directory (*/etc/ansible/playbooks*) and simply execute `ansible-playbook -vv one.yml --ask-vault-pass`
 
