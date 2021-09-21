@@ -41,14 +41,16 @@ A table has already been created with a couple rows
  
 uri
 - Get HTML content from NGINX
-<br></br>
+
 copy
 - Copy files such as *create.sql*, *docker-compose.yml*, *index.html* to the remote server
-<br></br>
+
 file
-~Create a directory to store the files to be copied from /src
+- Create a directory to store the files to be copied from /src
+
 docker_compose
  - Execute the docker-compose.yml file that spins up both NGINX and PostgreSQL
+ 
  pip
  - Install files using pip such as docker-compose, psycopg2-binary, docker-ce, docker
  apt
