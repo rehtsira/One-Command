@@ -41,10 +41,8 @@ A table has already been created with a couple rows
  
 uri
 - Get HTML content from NGINX
-
 copy
 - Copy files such as *create.sql*, *docker-compose.yml*, *index.html* to the remote server
-
 file
 - Create a directory to store the files to be copied from /src
 
