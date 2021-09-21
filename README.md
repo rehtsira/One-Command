@@ -39,13 +39,13 @@ A table has already been created with a couple rows
  
  So, I utilized several Ansible modules such as:
  
- uri
+uri
  - Get HTML content from NGINX
- copy
+copy
  - Copy files such as *create.sql*, *docker-compose.yml*, *index.html* to the remote server
- file
+file
  - Create a directory to store the files to be copied from /src
- docker_compose
+docker_compose
  - Execute the docker-compose.yml file that spins up both NGINX and PostgreSQL
  pip
  - Install files using pip such as docker-compose, psycopg2-binary, docker-ce, docker
