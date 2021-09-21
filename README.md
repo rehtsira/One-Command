@@ -41,25 +41,32 @@ A table has already been created with a couple rows
  
 uri
 - Get HTML content from NGINX
+
 copy
 - Copy files such as *create.sql*, *docker-compose.yml*, *index.html* to the remote server
+
 file
 - Create a directory to store the files to be copied from /src
 
 docker_compose
  - Execute the docker-compose.yml file that spins up both NGINX and PostgreSQL
  
- pip
- - Install files using pip such as docker-compose, psycopg2-binary, docker-ce, docker
- apt
- - Install packages such as aptitude, python3, apt-transport-https, ca-certificates, curl, software-properties-common, gnupg, lsb-release, python3-pip, python3-setuptools
- apt_key
- - To add Docker's GPG key
- apt_repository
+pip
+- Install files using pip such as docker-compose, psycopg2-binary, docker-ce, docker
+
+apt
+- Install packages such as aptitude, python3, apt-transport-https, ca-certificates, curl, software-properties-common, gnupg, lsb-release, python3-pip, python3-setuptools
+
+apt_key
+- To add Docker's GPG key
+
+apt_repository
  - To add docker repository
- postgresql_ping
+ 
+postgresql_ping
  - Pings the PostgreSQL database to verify that it is online
- import_playbook
+ 
+import_playbook
  - The heart and soul of how this project was possible. This executes all of the different playbooks one by one in order from start to finish. 
   
  
