@@ -9,7 +9,7 @@
      ansible_become_pass: '{{password}}'
    name: Setting up Docker Compose
    tasks:
-     - name: Install Docker Compose and psycopg2 with pip
+     - name: Install Docker Compose
        pip:
          name: docker-compose
          state: present
